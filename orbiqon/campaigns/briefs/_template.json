@@ -1,0 +1,19 @@
+{
+  "name": "Campaign name",
+  "goal": "One line on what the lead magnet is",
+  "file": "/absolute/path/to/file.pdf",
+  "target": { "postId": "", "postUrl": "", "pendingNextReel": false, "matchAnyPost": false },
+  "keywords": ["word", "WORD", "Word"],
+  "dmTriggerEnabled": true,
+  "requireFollow": true,
+  "followPromptMessage": "Hey {username}! Follow @shazimbuilds first, then tap below 👇",
+  "followPromptButtonLabel": "I followed",
+  "dmMessage": "Here you go {username}: ... Tap below to open it 👇",
+  "linkButtonLabel": "Get the guide",
+  "publicReplyEnabled": true,
+  "publicReplyMessages": ["Sent you a DM 📩", "Check your DMs 👀", "Just sent it over 👇"],
+  "followUpEnabled": false,
+  "followUpMessage": null,
+  "followUpDelayMinutes": 0,
+  "isActive": true
+}

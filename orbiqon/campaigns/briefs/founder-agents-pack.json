@@ -1,0 +1,21 @@
+{
+  "name": "Founder Agents Pack",
+  "goal": "Send the five-agent prompt pack PDF",
+  "file": "/Users/apple/Orbiqon/Content/carousel-lab/posts/founder-agents/guide/guide.pdf",
+  "driveFileId": "1x1Iv5q5lMma2M6Ur9hBLTOD9sO7A2aXZ",
+  "destinationUrl": "https://drive.google.com/file/d/1x1Iv5q5lMma2M6Ur9hBLTOD9sO7A2aXZ/view",
+  "trackedLink": "https://reply.orbiqon.com/r/mhNkfTpf0Q",
+  "createdAt": "2026-09-08T20:13:27Z",
+  "target": { "postId": "18121609250294069", "postUrl": "https://www.instagram.com/p/Dc0b6TpCEpk/", "pendingNextReel": false, "matchAnyPost": false },
+  "keywords": ["agents", "AGENTS", "Agents"],
+  "dmTriggerEnabled": true,
+  "requireFollow": true,
+  "followPromptMessage": "Hey {username}! Quick one: follow @shazimbuilds first so I can send you the pack. Then tap the button below 👇",
+  "followPromptButtonLabel": "I followed",
+  "dmMessage": "Here you go {username}: the full pack with all five agent prompts, the rules, and the exact setup. Tap below to open it 👇",
+  "linkButtonLabel": "Get the pack",
+  "publicReplyEnabled": true,
+  "publicReplyMessages": ["Sent you a DM 📩", "Check your DMs 👀", "Just sent it over 👇"],
+  "followUpEnabled": false,
+  "isActive": true
+}
