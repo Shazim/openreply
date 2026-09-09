@@ -47,4 +47,4 @@ with: <task>
 
 - 2026-09-07: forked repo, created Neon database, Railway Redis and worker, Vercel web app, Resend login.
 - 2026-09-08: created and published the Meta app, connected @shazimbuilds, moved to reply.orbiqon.com, created the Google Drive folder and the first campaign "Founder Agents Pack", wrote the skill and these docs, moved the clone from Downloads to Orbiqon/Content.
-- 2026-09-09: first live test passed. Added Vercel Blob hosting with the `/files/<slug>` route so each guide ships as an HTML page plus PDF on the app's domain with no deploy per file; re-pointed the campaign to `/files/agents-pack`.
+- 2026-09-09: first live test passed. Added Vercel Blob hosting with the `/files/<slug>` route so each guide ships as an HTML page plus PDF on the app's domain with no deploy per file; re-pointed the campaign to `/files/agents-pack`. Replaced the root page with a one-section shazimbuilds landing and removed upstream's SEO marketing pages (HOSTING.md section 9a).

@@ -166,6 +166,19 @@ Login is magic-link only. Auth.js provider id is `resend`. Domain orbiqon.com is
 - App roles: @shazimbuilds is an Instagram Tester (accepted).
 - Tokens: each connected account gets a 60-day long-lived token, stored encrypted in Postgres and refreshed daily by the Vercel cron.
 
+## 9a. Orbiqon changes to the upstream code
+
+The fork carries a few deliberate deviations from upstream OpenReply. Keep this list current so upstream merges are reviewed with them in mind.
+
+| Change | Files | Why |
+|---|---|---|
+| Branded one-section landing page | `app/page.tsx` (one-line render), `components/orbiqon-landing.tsx` | Upstream's root is a product marketing page for OpenReply; this domain is @shazimbuilds' own. |
+| Site title and description | `app/layout.tsx` metadata | Browser tab and share previews say shazimbuilds, not "Open source Instagram comment-to-DM automation". |
+| Removed upstream SEO pages | deleted `app/manychat-alternative`, `app/comment-link-automation`, `app/instagram-comment-to-dm-templates`, `app/instagram-dm-automation-agencies`, `app/templates`, `lib/seo-pages.ts`, `components/seo-page-shell.tsx`, `components/public-site-header.tsx` | So nothing ranks under reply.orbiqon.com except what we choose. Privacy, terms, data-deletion and meta-review pages are kept for Meta. |
+| File hosting route | `app/files/[...path]/route.ts`, `railway.json` | Serves guides from Vercel Blob on our domain (section 5a); Railway config for the worker. |
+
+When merging upstream (`git fetch upstream && git merge upstream/main`): expect conflicts on `app/page.tsx` and `app/layout.tsx` (keep ours), and re-delete any SEO page upstream re-adds. Nothing else should collide.
+
 ## 10. Local development clone
 
 - Path: `/Users/apple/Orbiqon/Content/openreply` (moved from Downloads on 2026-09-08).
