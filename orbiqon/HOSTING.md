@@ -172,7 +172,7 @@ The fork carries a few deliberate deviations from upstream OpenReply. Keep this 
 
 | Change | Files | Why |
 |---|---|---|
-| Branded one-section landing page | `app/page.tsx` (one-line render), `components/orbiqon-landing.tsx` | Upstream's root is a product marketing page for OpenReply; this domain is @shazimbuilds' own. |
+| Branded one-section landing page | `app/page.tsx` (one-line render), `components/orbiqon-landing.tsx`, `lib/orbiqon/latest-guide.ts` | Upstream's root is a product marketing page for OpenReply; this domain is @shazimbuilds' own. The "Latest guide" button is read from the database (newest active campaign pointing at `/files/<slug>`, label = campaign name, cached 5 min), so new campaigns update the site with no deploy. |
 | Site title and description | `app/layout.tsx` metadata | Browser tab and share previews say shazimbuilds, not "Open source Instagram comment-to-DM automation". |
 | Removed upstream SEO pages | deleted `app/manychat-alternative`, `app/comment-link-automation`, `app/instagram-comment-to-dm-templates`, `app/instagram-dm-automation-agencies`, `app/templates`, `lib/seo-pages.ts`, `components/seo-page-shell.tsx`, `components/public-site-header.tsx` | So nothing ranks under reply.orbiqon.com except what we choose. Privacy, terms, data-deletion and meta-review pages are kept for Meta. |
 | File hosting route | `app/files/[...path]/route.ts`, `railway.json` | Serves guides from Vercel Blob on our domain (section 5a); Railway config for the worker. |

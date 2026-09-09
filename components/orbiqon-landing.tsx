@@ -7,12 +7,13 @@ import Link from "next/link";
  */
 
 const INSTAGRAM_URL = "https://www.instagram.com/shazimbuilds/";
-const LATEST_GUIDE = {
-  label: "Latest guide: The Agents Pack",
-  href: "/files/agents-pack",
+
+type OrbiqonLandingProps = {
+  /** Newest active campaign's hosted guide, from lib/orbiqon/latest-guide. Null hides the button. */
+  latestGuide: { label: string; href: string } | null;
 };
 
-export function OrbiqonLanding() {
+export function OrbiqonLanding({ latestGuide }: OrbiqonLandingProps) {
   return (
     <>
       <link
@@ -102,22 +103,24 @@ export function OrbiqonLanding() {
             >
               Follow on Instagram
             </a>
-            <Link
-              href={LATEST_GUIDE.href}
-              style={{
-                display: "inline-block",
-                padding: "14px 24px",
-                background: "#FBF8F1",
-                color: "#1E1A15",
-                border: "1px solid #E3DCCD",
-                borderRadius: 999,
-                textDecoration: "none",
-                fontWeight: 700,
-                fontSize: 15,
-              }}
-            >
-              {LATEST_GUIDE.label}
-            </Link>
+            {latestGuide ? (
+              <Link
+                href={latestGuide.href}
+                style={{
+                  display: "inline-block",
+                  padding: "14px 24px",
+                  background: "#FBF8F1",
+                  color: "#1E1A15",
+                  border: "1px solid #E3DCCD",
+                  borderRadius: 999,
+                  textDecoration: "none",
+                  fontWeight: 700,
+                  fontSize: 15,
+                }}
+              >
+                {latestGuide.label}
+              </Link>
+            ) : null}
           </div>
         </section>
         <footer

@@ -105,6 +105,14 @@ To change the destination of an existing campaign: `PATCH /api/automations` with
 
 Save the brief as `orbiqon/campaigns/briefs/<slug>.json` (template `_template.json`), then commit `orbiqon/files/<topic>/` and the brief and push to `Shazim/openreply`. No deploy is needed for files; a deploy is only needed if app code changed.
 
+## Landing page button is automatic
+
+The root page https://reply.orbiqon.com shows a button "Latest guide: <campaign name>" pointing at the newest **active** campaign whose destination is a `/files/<slug>` page (lib/orbiqon/latest-guide.ts, re-read every 5 minutes). So:
+
+- The campaign `name` is public. Use a reader-facing name ("Founder Agents Pack"), not an internal one ("test 3").
+- Nothing to edit or deploy when a campaign goes live; the button updates within 5 minutes.
+- Pausing a campaign (`isActive:false`) makes the button fall back to the previous active one.
+
 ## Follow gate behaviour
 
 The worker asks Instagram whether the commenter already follows the account. Followers get the link immediately; non-followers get the follow prompt and the "I followed" button re-checks. If the check is unverifiable the link is sent (fail-open).

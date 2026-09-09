@@ -147,6 +147,10 @@ Elapsed: about three minutes of agent time for the campaign, plus a one-time 15 
 
 Test result: a comment from a second account that already followed @shazimbuilds received the DM with the "Get the pack" button immediately, with no follow prompt, which is the intended behaviour for followers.
 
+## 7a. The landing page follows the campaigns
+
+The root page at https://reply.orbiqon.com shows a "Latest guide: <campaign name>" button. It is not hard-coded: `lib/orbiqon/latest-guide.ts` reads the newest active campaign whose tracked link points at a `/files/<slug>` page and uses that campaign's name as the label. The page is cached for five minutes, so a campaign created through the skill shows up on the site by itself, with no edit and no deploy. Pausing a campaign drops it from the button; deleting all of them hides the button. Because the name is public, campaigns should be named for readers ("Founder Agents Pack"), not internally ("test 3").
+
 ## 8. Extending
 
 - **Attach to the next reel automatically**: send `pendingNextReel: true` instead of a `postId`; the 06:00 UTC Vercel cron attaches it to the newest reel.
