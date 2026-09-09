@@ -65,6 +65,7 @@ Commenter taps DM button --> https://reply.orbiqon.com/r/<slug> --302--> Google 
 | https://reply.orbiqon.com/api/instagram/callback | OAuth redirect (registered in the Meta app). |
 | https://reply.orbiqon.com/privacy, /terms, /data-deletion | Policy pages Meta requires. Shipped by the app. |
 | https://reply.orbiqon.com/r/<slug> | Tracked link redirect used in DMs. |
+| https://reply.orbiqon.com/files/<slug> and /files/<slug>.pdf | Hosted guide page and its PDF, served from Vercel Blob (section 5a). |
 
 Changing the primary domain again requires: Vercel domain, DNS, `NEXTAUTH_URL` on Vercel and Railway, Meta webhook callback re-verify, Meta OAuth redirect (add, keep old), Meta Basic settings app domain and policy URLs. Meta does not follow redirects, so a stale callback URL silently kills webhooks.
 
@@ -100,6 +101,24 @@ Changing the primary domain again requires: Vercel domain, DNS, `NEXTAUTH_URL` o
 | `INSTAGRAM_APP_SECRET` | Same page, click Show |
 | `FACEBOOK_APP_SECRET` | Meta app > App settings > Basic > App secret (requires Facebook password to reveal) |
 | `WEBHOOK_VERIFY_TOKEN` | random; the same string is saved in the Meta webhook config |
+| `FILES_BLOB_BASE_URL` | `https://mtcsjrvvjkxbxpzt.public.blob.vercel-storage.com` (public base of the Blob store, used by the `/files` route; Orbiqon-specific, not upstream) |
+
+## 5a. Vercel Blob (lead-magnet file hosting)
+
+Guides sent in DMs are hosted as files on the app's own domain, with no deploy per file.
+
+- Store: `openreply-files`, id `store_MtcsjRVvjKXbxPZt`, region iad1, public access, linked to the `openreply` project (Vercel dashboard > Storage). Free Hobby quota covers many gigabytes; guides are kilobytes.
+- Public base URL: `https://mtcsjrvvjkxbxpzt.public.blob.vercel-storage.com/<pathname>`. Do not send this URL to people; send the app URL below.
+- App route: `app/files/[...path]/route.ts` (Orbiqon addition, not upstream). It proxies `https://reply.orbiqon.com/files/<pathname>` to the store. An extensionless path is served as `<pathname>.html`; `.pdf` is served inline; every response has `X-Robots-Tag: noindex` and a 5-minute cache. Unknown files return 404; a missing `FILES_BLOB_BASE_URL` returns 503.
+- Convention: each guide is an HTML page plus a PDF with the same slug: `/files/<slug>` (page, the DM destination) and `/files/<slug>.pdf` (download button on the page). Hosted copies are committed under `orbiqon/files/<topic>/` as the record; the store is what serves them.
+- Uploading (from the repo; token lives in the gitignored `.env.local`, re-create with `vercel env pull .env.local --environment development`):
+  ```bash
+  TOK=$(grep '^BLOB_READ_WRITE_TOKEN=' .env.local | cut -d= -f2- | tr -d '"')
+  env -u VERCEL_OIDC_TOKEN -u BLOB_STORE_ID npx -y vercel@latest blob put orbiqon/files/<topic>/<slug>.html \
+    --rw-token "$TOK" --access public --pathname <slug>.html --allow-overwrite true --cache-control-max-age 300
+  ```
+  Same for the PDF. `vercel blob list --rw-token "$TOK"` lists files, `vercel blob del <pathname> --rw-token "$TOK"` removes one.
+- Replacing a file is the same `put` with `--allow-overwrite true`; links already sent show the new version within five minutes.
 
 ## 6. Railway (worker + Redis)
 
@@ -167,6 +186,7 @@ Login is magic-link only. Auth.js provider id is `resend`. Domain orbiqon.com is
 | Worker logs | `railway logs --service worker` |
 | Vercel logs | Vercel dashboard > project > Logs |
 | Force a token refresh | `curl -H "Authorization: Bearer $CRON_SECRET" https://reply.orbiqon.com/api/cron/refresh-tokens` |
+| Publish or replace a guide file (no deploy) | `vercel blob put <file> --rw-token "$TOK" --access public --pathname <slug>.html --allow-overwrite true` (section 5a) |
 | Pull upstream code updates | `git fetch upstream && git merge upstream/main`, then deploy both |
 
 ## 12. Failure playbook

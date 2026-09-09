@@ -15,7 +15,7 @@ Everything in this folder is Orbiqon-specific and lives alongside the upstream c
 
 ## The system in one paragraph
 
-Instagram sends a webhook to the Next.js web app on Vercel when someone comments a keyword. The app queues a job in Redis on Railway. A worker on Railway sends the DM through the Instagram API, using tokens stored encrypted in a Neon Postgres database. DM buttons point at tracked links on reply.orbiqon.com that redirect to files in the "OpenReply Files" Google Drive folder. Login is a magic link from Resend, limited to iamshazimkhan@gmail.com. The Meta app "OpenReply Shazim" is Live with Standard Access, which covers Shazim's own tester accounts and needs no App Review.
+Instagram sends a webhook to the Next.js web app on Vercel when someone comments a keyword. The app queues a job in Redis on Railway. A worker on Railway sends the DM through the Instagram API, using tokens stored encrypted in a Neon Postgres database. DM buttons point at tracked links on reply.orbiqon.com that redirect to guide pages hosted on the same domain under `/files/<slug>` (HTML page with a PDF download), served from a Vercel Blob store so new guides need no deploy. A Google Drive folder "OpenReply Files" keeps backup copies. Login is a magic link from Resend, limited to iamshazimkhan@gmail.com. The Meta app "OpenReply Shazim" is Live with Standard Access, which covers Shazim's own tester accounts and needs no App Review.
 
 ## Quick health check
 
@@ -47,3 +47,4 @@ with: <task>
 
 - 2026-09-07: forked repo, created Neon database, Railway Redis and worker, Vercel web app, Resend login.
 - 2026-09-08: created and published the Meta app, connected @shazimbuilds, moved to reply.orbiqon.com, created the Google Drive folder and the first campaign "Founder Agents Pack", wrote the skill and these docs, moved the clone from Downloads to Orbiqon/Content.
+- 2026-09-09: first live test passed. Added Vercel Blob hosting with the `/files/<slug>` route so each guide ships as an HTML page plus PDF on the app's domain with no deploy per file; re-pointed the campaign to `/files/agents-pack`.

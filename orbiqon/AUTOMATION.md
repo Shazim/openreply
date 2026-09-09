@@ -25,9 +25,26 @@ For the campaign "Founder Agents Pack" (the first one, created 2026-09-08):
 
 The comment author's own account is ignored on purpose, so testing needs a second Instagram account.
 
-## 3. Google Drive as the file host
+## 3. File hosting: HTML page plus PDF on reply.orbiqon.com
 
-**Why Drive.** OpenReply does not store files; a tracked link only needs a destination URL. Drive gives a stable, free, editable URL and the file can be replaced in place.
+**The decision (2026-09-09).** The carousel-lab generator produces every guide as both `guide.html` and `guide.pdf`. The HTML page is what the DM button opens, and the PDF is offered as a download from that page. Reasons: the page is mobile-first and readable inside Instagram's in-app browser, prompts can be copied with a long-press, it loads instantly, typos can be fixed after sending, and it stays on Shazim's own domain with no Google branding.
+
+**Where files live.** A Vercel Blob store (`openreply-files`) attached to the OpenReply project. The app serves the store on its own domain through a small route (`app/files/[...path]/route.ts`, an Orbiqon addition):
+
+| URL | Serves |
+|---|---|
+| `https://reply.orbiqon.com/files/<slug>` | `<slug>.html` from the store, the DM destination |
+| `https://reply.orbiqon.com/files/<slug>.pdf` | the PDF, inline, linked from the page's "Download as PDF" button |
+
+Uploading is one command per file and needs no deploy (see HOSTING.md section 5a). Every response carries a `noindex` header, and the HTML copy also gets a `noindex` meta tag, so guides earned by commenting do not show up on Google.
+
+**Preparing the HTML copy.** The generator's file is never edited in place. A copy goes to `orbiqon/files/<topic>/<slug>.html` with two additions: the `noindex` meta tag and a "Download as PDF" button pointing at `/files/<slug>.pdf`. The PDF is copied next to it as `<slug>.pdf`. Both are committed to the repo as the record, then uploaded to the store. The exact edits and commands are in the skill file.
+
+**Why not the alternatives.** Committing files into `public/` would need a deploy per guide. Cloudflare R2 with a custom domain needs orbiqon.com's DNS on Cloudflare, which it is not. Google Drive works but lands people on a Google preview page.
+
+## 3a. Google Drive (backup copy only)
+
+Drive was the first host and remains a convenient backup and a place Shazim can drop files from a phone. It is no longer the DM destination.
 
 **The folder.** "OpenReply Files" in iamshazimkhan@gmail.com's My Drive.
 
@@ -119,13 +136,16 @@ Input given by Shazim: the PDF `guide.pdf`, "the carousel I added", keyword "Age
 
 What the agent did:
 
-1. Created the Drive folder and uploaded `guide.pdf` -> file id `1x1Iv5q5lMma2M6Ur9hBLTOD9sO7A2aXZ`; set folder to Anyone with the link.
+1. Created the Drive folder and uploaded `guide.pdf` -> file id `1x1Iv5q5lMma2M6Ur9hBLTOD9sO7A2aXZ`; set folder to Anyone with the link. (Drive is now backup only; see 3a.)
 2. Listed posts, matched the caption "Most founders use claude like a chatbot..." (CAROUSEL_ALBUM) -> `postId 18121609250294069`.
 3. POSTed the campaign with keywords `agents, AGENTS, Agents`, DM trigger on, follow gate on, button "Get the pack", three public replies.
-4. Verified `https://reply.orbiqon.com/r/mhNkfTpf0Q` returns 302 to the Drive file, and the file is publicly downloadable.
+4. Verified `https://reply.orbiqon.com/r/mhNkfTpf0Q` returns 302 to the destination.
 5. Saved `orbiqon/campaigns/briefs/founder-agents-pack.json`.
+6. Next day: prepared `orbiqon/files/founder-agents/agents-pack.html` (noindex + download button) and `agents-pack.pdf`, uploaded both to the Blob store, and re-pointed the campaign's destination to `https://reply.orbiqon.com/files/agents-pack`. The tracked link slug did not change.
 
-Elapsed: about three minutes of agent time.
+Elapsed: about three minutes of agent time for the campaign, plus a one-time 15 minutes to set up Blob hosting.
+
+Test result: a comment from a second account that already followed @shazimbuilds received the DM with the "Get the pack" button immediately, with no follow prompt, which is the intended behaviour for followers.
 
 ## 8. Extending
 
@@ -133,4 +153,5 @@ Elapsed: about three minutes of agent time.
 - **One keyword across all posts**: `matchAnyPost: true`.
 - **Follow-up nudge**: `followUpEnabled: true`, `followUpMessage`, `followUpDelayMinutes` up to 1440.
 - **Second button**: `secondaryDestinationUrl` + `secondaryButtonLabel`, for example a booking link.
-- **Direct file links instead of Drive preview**: put the PDF in the repo's `public/files/` and deploy; the URL `https://reply.orbiqon.com/files/<name>.pdf` opens the PDF immediately. Trade-off: files are tied to git commits.
+- **Other file types**: the `/files` route serves whatever is in the Blob store with its content type, so images, videos, or zips work the same way; only extensionless paths are assumed to be HTML.
+- **Updating a guide after sending**: re-upload with the same pathname and `--allow-overwrite true`; every link already sent shows the new version within five minutes.

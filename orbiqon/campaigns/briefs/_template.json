@@ -1,9 +1,24 @@
 {
   "name": "Campaign name",
   "goal": "One line on what the lead magnet is",
-  "file": "/absolute/path/to/file.pdf",
-  "target": { "postId": "", "postUrl": "", "pendingNextReel": false, "matchAnyPost": false },
-  "keywords": ["word", "WORD", "Word"],
+  "slug": "kebab-case-url-name",
+  "files": {
+    "html": "/absolute/path/guide.html",
+    "pdf": "/absolute/path/guide.pdf"
+  },
+  "pageUrl": "https://reply.orbiqon.com/files/<slug>",
+  "pdfUrl": "https://reply.orbiqon.com/files/<slug>.pdf",
+  "target": {
+    "postId": "",
+    "postUrl": "",
+    "pendingNextReel": false,
+    "matchAnyPost": false
+  },
+  "keywords": [
+    "word",
+    "WORD",
+    "Word"
+  ],
   "dmTriggerEnabled": true,
   "requireFollow": true,
   "followPromptMessage": "Hey {username}! Follow @shazimbuilds first, then tap below 👇",
@@ -11,7 +26,11 @@
   "dmMessage": "Here you go {username}: ... Tap below to open it 👇",
   "linkButtonLabel": "Get the guide",
   "publicReplyEnabled": true,
-  "publicReplyMessages": ["Sent you a DM 📩", "Check your DMs 👀", "Just sent it over 👇"],
+  "publicReplyMessages": [
+    "Sent you a DM 📩",
+    "Check your DMs 👀",
+    "Just sent it over 👇"
+  ],
   "followUpEnabled": false,
   "followUpMessage": null,
   "followUpDelayMinutes": 0,
