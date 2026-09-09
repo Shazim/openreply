@@ -3,20 +3,17 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "OpenReply - Open source Instagram comment-to-DM automation",
+  // Orbiqon: this instance is @shazimbuilds' own, not the OpenReply product site.
+  title: {
+    default: "shazimbuilds",
+    template: "%s | shazimbuilds",
+  },
   description:
-    "A free, self-hosted ManyChat alternative. Send an Instagram DM automatically when someone comments a keyword on your post or reel, using the official Meta API.",
-  keywords: [
-    "instagram automation",
-    "comment to DM",
-    "instagram private replies",
-    "social commerce",
-    "manychat alternative",
-  ],
+    "Guides and build logs for founders who ship, delivered by Instagram DM.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
-    title: "OpenReply",
+    title: "shazimbuilds",
     statusBarStyle: "black-translucent",
   },
   icons: {
