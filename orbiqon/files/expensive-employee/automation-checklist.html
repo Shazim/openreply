@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The First Automation Checklist — @shazimbuilds</title>
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#F3EFE6; color:#1E1A15; font-family:'Manrope',sans-serif;
+         font-size:17px; line-height:1.65; }
+  .page { max-width:720px; margin:0 auto; padding:64px 28px 96px; }
+  .kicker { font-size:13px; font-weight:800; letter-spacing:3.5px; text-transform:uppercase;
+            color:#C96442; margin-bottom:14px; }
+  h1 { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:44px; line-height:1.12; }
+  .intro { margin:20px 0 8px; color:#5C554A; }
+  h2 { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:26px; margin:48px 0 12px; }
+  h2 span { color:#C96442; }
+  .q { background:#FBF8F1; border:1.5px solid #E9E3D5; border-radius:16px;
+       padding:20px 24px; margin:14px 0; }
+  .q b { display:block; font-size:18px; margin-bottom:6px; }
+  .q span { color:#5C554A; font-size:15.5px; }
+  .score { font-family:'JetBrains Mono',monospace; font-size:13px; color:#C96442;
+           display:block; margin-top:10px; }
+  .verdict { background:#262019; color:#E8E2D8; border-radius:16px; padding:24px 28px;
+             margin:28px 0; font-family:'JetBrains Mono',monospace; font-size:14.5px;
+             line-height:1.8; }
+  .verdict b { color:#E08B5E; font-weight:500; }
+  .tip { border-left:4px solid #C96442; padding:12px 18px; background:#FBF8F1;
+         border-radius:0 12px 12px 0; margin:16px 0; font-size:15.5px; }
+  table { width:100%; border-collapse:collapse; font-size:15px; margin:14px 0;
+          background:#FBF8F1; border-radius:14px; overflow:hidden; }
+  th { text-align:left; font-size:12px; letter-spacing:1.5px; text-transform:uppercase;
+       color:#8B8375; padding:12px 16px; border-bottom:1.5px solid #E9E3D5; }
+  td { padding:11px 16px; border-bottom:1px solid #EFE9DC; vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  .footer { margin-top:64px; text-align:center; font-size:17px; color:#5C554A; font-weight:600; }
+  .footer .handle { font-size:13px; letter-spacing:2px; color:#A79E8F; margin-top:8px; font-weight:700; }
+  .download { display:inline-block; margin-top:22px; padding:12px 22px; background:#C96442; color:#fff; border-radius:999px; text-decoration:none; font-weight:700; font-size:15px; }
+</style></head><body><div class="page">
+
+<div class="kicker">the automate checklist · @shazimbuilds</div>
+<h1>Find your first automation in 10 minutes</h1>
+<p class="intro">List every task you did more than once last week — small ones count
+(replying to leads, chasing an invoice, copying data between tools, posting content,
+sending recaps). Then run each task through these five questions.</p>
+
+<h2><span>1</span> Does it repeat on a schedule?</h2>
+<div class="q"><b>Daily or weekly beats monthly.</b>
+<span>Frequency is what makes automation pay. A 15-minute task done daily is 90 hours a year.</span>
+<span class="score">score: daily +3 · weekly +2 · monthly +1</span></div>
+
+<h2><span>2</span> Are the steps the same every time?</h2>
+<div class="q"><b>Could you write the steps on one index card?</b>
+<span>If yes, a machine can follow the card. If every instance is different, it's not automation material yet.</span>
+<span class="score">score: identical steps +3 · mostly same +2 · always different +0</span></div>
+
+<h2><span>3</span> Does it need your judgment — or just your hands?</h2>
+<div class="q"><b>The question that surprises people.</b>
+<span>Most tasks founders "must do personally" only need their hands (moving, formatting, sending), not their judgment (deciding). Hands-work automates. Judgment-work gets a draft prepared for you instead.</span>
+<span class="score">score: just hands +3 · draft-then-approve +2 · pure judgment +0</span></div>
+
+<h2><span>4</span> Would you pay someone to never make you do it again?</h2>
+<div class="q"><b>The emotional test — it's rarely wrong.</b>
+<span>The task you dread is the one you delay; the one you delay is the one that leaks money.</span>
+<span class="score">score: instantly yes +3 · probably +1</span></div>
+
+<h2><span>5</span> Does it touch money or leads?</h2>
+<div class="q"><b>Careful tier — automate the draft, keep the send.</b>
+<span>Invoice chasing, lead replies, quotes: highest payoff AND highest risk. Automate everything up to the final tap, then you press send. One rule keeps it safe: <b>machines draft, you send.</b></span>
+<span class="score">score: yes +2 (and apply the rule) · no +1</span></div>
+
+<div class="verdict"><b>Your first automation</b> = the task scoring 10+.
+Tie-breaker: pick the one from question 4.
+<b>Not</b> the fanciest one. Not the newest AI toy. The boring 10+ task.</div>
+
+<h2>What to build it with</h2>
+<table>
+<tr><th>Your winner looks like…</th><th>Start with</th></tr>
+<tr><td>Same message answered again and again</td><td>Claude Project with your FAQ + tone → drafts replies, you send</td></tr>
+<tr><td>Data moved between two tools</td><td>n8n or Zapier: trigger → transform → destination. No AI needed.</td></tr>
+<tr><td>Chasing invoices / follow-ups</td><td>n8n schedule + Claude-drafted nudge emails, escalating politely</td></tr>
+<tr><td>Weekly report or recap</td><td>Scheduled Claude job: pull numbers → 3 plain-English takeaways</td></tr>
+<tr><td>Posting content everywhere</td><td>Make it once, schedule via a posting API (one render → all platforms)</td></tr>
+</table>
+
+<div class="tip"><b>The 2-week rule:</b> run the automation alongside your manual process
+for two weeks before trusting it. If its drafts match what you would have done
+9 times out of 10, hand it the keys (except the send button).</div>
+
+<div class="footer">Kill one task this weekend. Then come back for the next one.
+<div class="handle">@shazimbuilds — DM "AUTOMATE" questions any time</div>
+<a class="download" href="/files/automation-checklist.pdf">Download as PDF</a></div>
+
+</div></body></html>

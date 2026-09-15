@@ -1,0 +1,33 @@
+{
+  "name": "First Automation Checklist",
+  "goal": "Send the find-your-first-automation checklist",
+  "slug": "automation-checklist",
+  "files": {
+    "html": "/Users/apple/Orbiqon/Content/carousel-lab/posts/expensive-employee/guide/guide.html",
+    "pdf": "/Users/apple/Orbiqon/Content/carousel-lab/posts/expensive-employee/guide/guide.pdf",
+    "hostedCopies": "orbiqon/files/expensive-employee/"
+  },
+  "pageUrl": "https://reply.orbiqon.com/files/automation-checklist",
+  "pdfUrl": "https://reply.orbiqon.com/files/automation-checklist.pdf",
+  "destinationUrl": "https://reply.orbiqon.com/files/automation-checklist",
+  "trackedLink": "https://reply.orbiqon.com/r/sRkln7RYGA",
+  "createdAt": "2026-09-15T07:55:23Z",
+  "target": {
+    "postId": "18021076109872464",
+    "postUrl": "https://www.instagram.com/reel/DdTNdxUvsGE/",
+    "postCaption": "most founders are the most expensive employee in their own business.",
+    "pendingNextReel": false,
+    "matchAnyPost": false
+  },
+  "keywords": ["automate", "AUTOMATE", "Automate"],
+  "dmTriggerEnabled": true,
+  "requireFollow": true,
+  "followPromptMessage": "Hey {username}! Quick one: follow @shazimbuilds first so I can send you the checklist. Then tap the button below 👇",
+  "followPromptButtonLabel": "I followed",
+  "dmMessage": "Here you go {username}: the 10-minute checklist to find your first automation, with the five questions, the scoring, and what to build it with. Tap below to open it 👇",
+  "linkButtonLabel": "Get the checklist",
+  "publicReplyEnabled": true,
+  "publicReplyMessages": ["Sent you a DM 📩", "Check your DMs 👀", "Just sent it over 👇"],
+  "followUpEnabled": false,
+  "isActive": true
+}
