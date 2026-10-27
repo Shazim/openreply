@@ -1,0 +1,40 @@
+{
+  "name": "The 25-Hire Claude Team",
+  "goal": "Send the install guide for the 25 tools in the claude-team carousel, plus the log audit script",
+  "slug": "claude-team",
+  "files": {
+    "html": "/Users/apple/Orbiqon/Content/carousel-lab/posts/claude-team/guide/guide.html",
+    "pdf": "/Users/apple/Orbiqon/Content/carousel-lab/posts/claude-team/guide/guide.pdf",
+    "hostedCopies": "orbiqon/files/claude-team/"
+  },
+  "pageUrl": "https://reply.orbiqon.com/files/claude-team",
+  "pdfUrl": "https://reply.orbiqon.com/files/claude-team.pdf",
+  "status": "files hosted 2026-10-27; campaign not created yet (carousel not posted). Create it once the post is live: fill target.postId/postUrl from GET /api/instagram/posts.",
+  "target": {
+    "postId": "",
+    "postUrl": "",
+    "pendingNextReel": false,
+    "matchAnyPost": false
+  },
+  "keywords": [
+    "team",
+    "TEAM",
+    "Team"
+  ],
+  "dmTriggerEnabled": true,
+  "requireFollow": true,
+  "followPromptMessage": "Hey {username}! Quick one: follow @shazimbuilds first so I can send you the guide. Then tap the button below 👇",
+  "followPromptButtonLabel": "I followed",
+  "dmMessage": "Here you go {username}: the install step and official link for all 25 tools, plus the script I used to audit my own Claude Code logs. Tap below to open it 👇",
+  "linkButtonLabel": "Get the guide",
+  "publicReplyEnabled": true,
+  "publicReplyMessages": [
+    "Sent you a DM 📩",
+    "Check your DMs 👀",
+    "Just sent it over 👇"
+  ],
+  "followUpEnabled": false,
+  "followUpMessage": null,
+  "followUpDelayMinutes": 0,
+  "isActive": true
+}
