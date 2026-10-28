@@ -1,0 +1,28 @@
+{
+  "name": "HVAC After-Hours Call Playbook",
+  "goal": "EP01 US HVAC after-hours reel on @orbiqon: deliver the DISPATCH playbook to HVAC owners",
+  "account": "@orbiqon (instagramAccountId cmvsfn741000004kzjqhli10t)",
+  "slug": "hvac-after-hours",
+  "files": {
+    "html": "/Users/apple/Orbiqon/Content/orbiqon-content/reels/ep01-us-hvac-after-hours/guide/guide.html",
+    "pdf": "/Users/apple/Orbiqon/Content/orbiqon-content/reels/ep01-us-hvac-after-hours/guide/guide.pdf"
+  },
+  "pageUrl": "https://reply.orbiqon.com/files/hvac-after-hours",
+  "pdfUrl": "https://reply.orbiqon.com/files/hvac-after-hours.pdf",
+  "target": { "postId": "", "postUrl": "", "pendingNextReel": false, "matchAnyPost": true },
+  "targetNote": "matchAnyPost so it works the moment the reel posts (attach-next-reel cron only runs 06:00 UTC). Pin to the reel's postId after it goes live.",
+  "keywords": ["dispatch", "DISPATCH", "Dispatch"],
+  "dmTriggerEnabled": true,
+  "requireFollow": true,
+  "followPromptMessage": "Hey {username}! Follow @orbiqon first, then tap below and the playbook is yours 👇",
+  "followPromptButtonLabel": "I followed",
+  "dmMessage": "Here you go {username}: the after-hours call playbook for HVAC companies. The text-back script, an emergency list, the on-call handoff, and 5 questions to ask any agency before you buy. Tap below to open it 👇",
+  "linkButtonLabel": "Get the playbook",
+  "publicReplyEnabled": true,
+  "publicReplyMessages": ["Sent you a DM 📩", "Check your DMs 👀", "Just sent it over 👇"],
+  "followUpEnabled": false,
+  "isActive": true,
+  "campaignId": "cmvsftjmo000008jz2gq62t9x",
+  "trackedLink": "https://reply.orbiqon.com/r/XOLU5jGGbA",
+  "created": "2026-10-28"
+}
