@@ -132,6 +132,7 @@ Guides sent in DMs are hosted as files on the app's own domain, with no deploy p
     ```
     A variable change alone does not redeploy this service. After changing a variable run `railway redeploy --service worker -y`.
   - Variables: the same set as Vercel except `REDIS_URL` is the Railway reference `${{Redis.REDIS_URL}}` (internal host `redis.railway.internal`, free of egress) and `NODE_ENV=production`.
+  - `COMMENT_POLL_INTERVAL_MS=1800000` (30 min, set 2026-10-28). The upstream default of 5 min queried Neon so often that compute never suspended and used up the free plan's monthly CU-hours, which took the database down on 2026-10-28. Do not lower it.
   - Restart policy: on failure, max 10 retries.
 - Service `Redis` (id `7ac866c8-3c80-435e-acd7-57843cb6ee20`): Railway's Redis template, image `redis:8.2`, with a volume. A TCP proxy (`altaria.proxy.rlwy.net:52363`, id `3186ff66-...`) was created through Railway's GraphQL API so Vercel can reach it. Password is in the service's `REDISPASSWORD` variable.
 - CLI: `railway` 4.x is logged in as iamshazimkhan@gmail.com. The local clone is linked to this project/service; re-link with
@@ -140,6 +141,7 @@ Guides sent in DMs are hosted as files on the app's own domain, with no deploy p
 
 ## 7. Neon (PostgreSQL)
 
+- Plan: **Launch** (pay per use, billed monthly in arrears) since 2026-10-28, after the Free plan's 100 CU-hours/month ran out. With the 30-minute poll the database suspends between sweeps; moving back to Free is an option once a month's usage is confirmed well under 100 CU-hours.
 - Project `openreply`, id `delicate-forest-69537865`, region `aws-us-east-1`, Postgres 18, default database `neondb`, role `neondb_owner`. Compute autosuspends when idle; that is fine for this workload.
 - Both direct and pooled hosts exist. The app uses the **direct** host (`ep-rapid-tooth-auymru63.c-10.us-east-1.aws.neon.tech`). Prisma migrations need the direct host.
 - Migrations: applied automatically on every Vercel production deploy. To run by hand:
@@ -172,7 +174,7 @@ The fork carries a few deliberate deviations from upstream OpenReply. Keep this 
 
 | Change | Files | Why |
 |---|---|---|
-| Branded one-section landing page | `app/page.tsx` (one-line render), `components/orbiqon-landing.tsx`, `lib/orbiqon/latest-guide.ts` | Upstream's root is a product marketing page for OpenReply; this domain is @shazimbuilds' own. The "Latest guide" button is read from the database (newest active campaign pointing at `/files/<slug>`, label = campaign name, cached 5 min), so new campaigns update the site with no deploy. |
+| Branded one-section landing page | `app/page.tsx` (one-line render), `components/orbiqon-landing.tsx`, `lib/orbiqon/latest-guide.ts` | Upstream's root is a product marketing page for OpenReply; this domain is @shazimbuilds' own. The "Latest guide" button is read from the database (newest active **@shazimbuilds** campaign pointing at `/files/<slug>`, label = campaign name, cached 5 min), so new campaigns update the site with no deploy. Campaigns of other connected accounts (@orbiqon) never appear there. |
 | Site title and description | `app/layout.tsx` metadata | Browser tab and share previews say shazimbuilds, not "Open source Instagram comment-to-DM automation". |
 | Removed upstream SEO pages | deleted `app/manychat-alternative`, `app/comment-link-automation`, `app/instagram-comment-to-dm-templates`, `app/instagram-dm-automation-agencies`, `app/templates`, `lib/seo-pages.ts`, `components/seo-page-shell.tsx`, `components/public-site-header.tsx` | So nothing ranks under reply.orbiqon.com except what we choose. Privacy, terms, data-deletion and meta-review pages are kept for Meta. |
 | File hosting route | `app/files/[...path]/route.ts`, `railway.json` | Serves guides from Vercel Blob on our domain (section 5a); Railway config for the worker. |

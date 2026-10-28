@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db/client";
 
 /**
- * The newest active campaign whose DM link points at a guide hosted on this
+ * The newest active @shazimbuilds campaign whose DM link points at a guide hosted on this
  * domain (/files/<slug>). Drives the "Latest guide" button on the landing
  * page, so publishing a campaign updates the site with no edit or deploy.
  *
@@ -17,13 +17,19 @@ export type LatestGuide = {
 };
 
 const FILES_PATH_PREFIX = "/files/";
+// The landing page is @shazimbuilds' own; other connected accounts (e.g.
+// @orbiqon) run campaigns in the same workspace but never surface here.
+const LANDING_ACCOUNT_USERNAME = "shazimbuilds";
 
 export async function getLatestGuide(): Promise<LatestGuide | null> {
   try {
     const link = await prisma.trackedLink.findFirst({
       where: {
         destinationUrl: { contains: FILES_PATH_PREFIX },
-        automation: { isActive: true },
+        automation: {
+          isActive: true,
+          instagramAccount: { username: LANDING_ACCOUNT_USERNAME },
+        },
       },
       orderBy: { createdAt: "desc" },
       select: {
