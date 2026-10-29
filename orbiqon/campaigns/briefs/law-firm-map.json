@@ -1,0 +1,42 @@
+{
+  "name": "The Automation Map for Law Firms",
+  "goal": "EP02 US law firm map reel on @orbiqon: deliver the law firm automation map",
+  "account": "@orbiqon (instagramAccountId cmvsfn741000004kzjqhli10t)",
+  "slug": "law-firm-map",
+  "files": {
+    "html": "/Users/apple/Orbiqon/Content/orbiqon-content/reels/ep02-us-law-firm-map/guide/guide.html",
+    "pdf": "/Users/apple/Orbiqon/Content/orbiqon-content/reels/ep02-us-law-firm-map/guide/guide.pdf"
+  },
+  "pageUrl": "https://reply.orbiqon.com/files/law-firm-map",
+  "pdfUrl": "https://reply.orbiqon.com/files/law-firm-map.pdf",
+  "target": {
+    "postId": "",
+    "postUrl": "",
+    "pendingNextReel": false,
+    "matchAnyPost": true
+  },
+  "targetNote": "matchAnyPost so it works the moment the reel posts (attach-next-reel cron only runs 06:00 UTC). Pin to the reel's postId after it goes live.",
+  "keywords": [
+    "lawfirm",
+    "LAWFIRM",
+    "LawFirm",
+    "Lawfirm"
+  ],
+  "dmTriggerEnabled": true,
+  "requireFollow": true,
+  "followPromptMessage": "Hey {username}! Follow @orbiqon first, then tap below and the map is yours 👇",
+  "followPromptButtonLabel": "I followed",
+  "dmMessage": "Here you go {username}: the automation map for law firms. Every department, what we would automate in each, who approves it, and where to start. Tap below to open it 👇",
+  "linkButtonLabel": "Get the map",
+  "publicReplyEnabled": true,
+  "publicReplyMessages": [
+    "Sent you a DM 📩",
+    "Check your DMs 👀",
+    "Just sent it over 👇"
+  ],
+  "followUpEnabled": false,
+  "isActive": true,
+  "campaignId": "cmvtmj75t000008jm9gc133cj",
+  "trackedLink": "https://reply.orbiqon.com/r/sSk4YRBl6A",
+  "created": "2026-10-29"
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The automation map for law firms · Orbiqon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Manrope:wght@400..800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#F4F1EC; --card:#FFFFFF; --ink:#111111; --muted:#6B6B6B; --line:#E6E0D6;
+          --teal:#0097B2; --teal-tint:#DDF1F5; --red:#E5484D; --red-tint:#FDE8E9; --green:#1F9D55; }
+  body { background:var(--bg); color:var(--ink); font-family:'Manrope',sans-serif; font-size:17px; line-height:1.62;
+         background-image:linear-gradient(rgba(17,17,17,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(17,17,17,.04) 1px,transparent 1px);
+         background-size:32px 32px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page { max-width:760px; margin:0 auto; padding:56px 28px 80px; }
+  .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:36px; }
+  .brand { font-family:'Cal Sans',sans-serif; font-size:26px; letter-spacing:-0.01em; }
+  .brand i { color:var(--teal); font-style:normal; }
+  .chip { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:12px; letter-spacing:.1em;
+          border:2px solid var(--ink); border-radius:8px; padding:5px 10px; }
+  h1 { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:50px; line-height:1.04; letter-spacing:-0.015em; }
+  h1 em { font-family:'Instrument Serif',serif; font-style:italic; color:var(--teal); font-size:1.12em; }
+  .intro { margin:18px 0 0; color:#3D3D3D; font-size:18px; }
+  h2 { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:28px; line-height:1.15; margin:46px 0 14px;
+       display:flex; gap:14px; align-items:baseline; }
+  h2 .n { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px; color:var(--teal);
+          background:var(--teal-tint); border-radius:8px; padding:4px 9px; flex-shrink:0; transform:translateY(-4px); }
+  p { margin:10px 0; }
+  .card { background:var(--card); border-radius:18px; padding:20px 24px; margin:14px 0;
+          box-shadow:0 14px 34px rgba(30,40,50,.08),0 3px 8px rgba(30,40,50,.04); }
+  .stat { display:flex; gap:22px; align-items:center; }
+  .stat .big { font-family:'Cal Sans',sans-serif; font-size:64px; line-height:1; color:var(--red); flex-shrink:0; }
+  .src { font-size:13.5px; color:var(--muted); margin-top:8px; }
+  .sms { display:flex; flex-direction:column; gap:10px; }
+  .b { max-width:78%; padding:11px 16px; border-radius:18px; font-size:15.5px; line-height:1.4; }
+  .b.a { background:var(--teal); color:#fff; border-bottom-left-radius:6px; align-self:flex-start; }
+  .b.u { background:#EDE7DE; border-bottom-right-radius:6px; align-self:flex-end; font-weight:700; }
+  ul { margin:8px 0 8px 22px; } li { margin:6px 0; }
+  .warn { border-left:5px solid var(--red); background:var(--red-tint); border-radius:0 14px 14px 0; padding:14px 18px; margin:16px 0; font-size:16px; }
+  .ok { border-left:5px solid var(--green); background:#E6F4EC; border-radius:0 14px 14px 0; padding:14px 18px; margin:16px 0; font-size:16px; }
+  table { width:100%; border-collapse:collapse; font-size:15.5px; background:var(--card); border-radius:16px; overflow:hidden;
+          box-shadow:0 14px 34px rgba(30,40,50,.08); margin:14px 0; }
+  th { text-align:left; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+       color:var(--muted); padding:12px 16px; border-bottom:1.5px solid var(--line); }
+  td { padding:12px 16px; border-bottom:1px solid #EFEAE2; vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  .qs li { margin:12px 0; } .qs b { display:block; }
+  .qs span { color:var(--muted); font-size:15.5px; }
+  .end { margin-top:56px; background:var(--ink); color:#fff; border-radius:22px; padding:30px 30px; }
+  .end h3 { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:30px; line-height:1.1; }
+  .end h3 i { color:var(--teal); font-style:normal; }
+  .end p { color:#D6D6D6; }
+  .end a { display:inline-block; margin-top:14px; background:var(--teal); color:#fff; text-decoration:none; font-weight:800;
+           padding:12px 20px; border-radius:12px; }
+  .download { display:inline-block; margin-top:22px; padding:12px 22px; background:#0097B2; color:#fff; border-radius:999px; text-decoration:none; font-weight:700; font-size:15px; }
+  .fine { margin-top:22px; font-size:12.5px; color:var(--muted); }
+  .dept td:first-child { font-family:"JetBrains Mono",monospace; font-weight:700; font-size:12.5px; letter-spacing:.08em; color:var(--teal); white-space:nowrap; }
+  .who { font-weight:800; }
+  @media print { body { background-image:none; } .page { padding:28px 20px; } h2 { break-after:avoid; } .card, table, .end { break-inside:avoid; } }
+</style></head><body><div class="page">
+
+<div class="top"><div class="brand">Orbiqon<i>.</i></div><div class="chip">THE MAP · #02</div></div>
+
+<h1>The automation map for <em>law firms</em></h1>
+<p class="intro">Everything we'd automate in a small or mid-size US firm, department by department: what each piece does, the software it lives in, and the person who approves it. Use it to plan your own setup, or to check what an agency is offering you.</p>
+
+<h2><span class="n">01</span>Where the hours go</h2>
+<div class="card stat">
+  <div class="big">1 in 3</div>
+  <div>firms delay their invoices because timesheets are incomplete. Only 29% use automated tools for billing.
+  <div class="src">Source: Smokeball, 2025 State of Law report, survey of 310 US legal professionals (reported by LawSites, 17 Mar 2025). Smokeball sells practice management software.</div></div>
+</div>
+<div class="card stat">
+  <div class="big">35%</div>
+  <div>of 1,200 calls to small and mid-size US firms went unanswered during business hours, over four weeks.
+  <div class="src">Source: Law Leaders "Silent Lines" study, press release 13 Aug 2025. Law Leaders sells intake services, so treat it as their own data.</div></div>
+</div>
+<p>Most firms don't have a single big problem. They have small leaks in every department: an enquiry nobody sorts, a letter retyped from the intake form, a client who calls to ask where their case is, an hour of work that never makes it onto a timesheet.</p>
+
+<h2><span class="n">02</span>The map</h2>
+<table class="dept">
+<tr><th>Department</th><th>What we'd automate</th><th>Who approves</th></tr>
+<tr><td>FRONT DOOR</td><td>Every web, phone and email enquiry sorted by practice area, key facts pulled out, and a conflict check run against your contacts before anyone calls back. Urgent matters page the attorney on call. Built into Lawmatics or Clio Grow.</td><td class="who">Intake lead accepts or declines</td></tr>
+<tr><td>ENGAGEMENT</td><td>Engagement letter and fee agreement drafted from the intake answers, in your own template, then sent for e-signature.</td><td class="who">A lawyer signs off every letter</td></tr>
+<tr><td>CASE WORK</td><td>Medical records, police reports and disclosure bundles indexed, and a draft chronology or summary prepared from them.</td><td class="who">Paralegal reviews and corrects</td></tr>
+<tr><td>CLIENTS</td><td>"Where is my case?" answered with a plain-English update drafted from your Clio milestones, on a schedule or on request.</td><td class="who">Fee earner approves before sending</td></tr>
+<tr><td>BILLING</td><td>Sent emails, calls and documents turned into draft time entries against the right matter.</td><td class="who">You approve in one pass, weekly</td></tr>
+<tr><td>CASH</td><td>Polite reminders on unpaid invoices, and any trust account entry that doesn't match a matter flagged.</td><td class="who">Accounts team handles every flag</td></tr>
+</table>
+<p>Also worth automating once the core is in: review and referral requests when a matter closes, and (for UK firms) ID and anti-money-laundering checks pushed straight into the case file.</p>
+
+<h2><span class="n">03</span>Where we'd start: billing</h2>
+<p>Time capture is the first build we'd suggest for most firms, for three reasons:</p>
+<ul>
+  <li><b>It finds money you already earned.</b> Work that happened but never reached a timesheet.</li>
+  <li><b>No client ever sees it.</b> If a draft entry is wrong, the only person who notices is you, before anything is billed.</li>
+  <li><b>It's small.</b> It needs read access to email and calendar, your matter list in Clio, and your billing codes.</li>
+</ul>
+<div class="ok">How the approval works: every Friday you get one list of draft entries. Approve, edit or delete each one. Nothing goes on a bill until you say so.</div>
+
+<h2><span class="n">04</span>Where custom software beats off-the-shelf</h2>
+<p>Sometimes the gap isn't a missing automation, it's a missing tool. Common ones we see for firms:</p>
+<ul>
+  <li><b>A client status page</b> built from your Clio milestones, for clients who will never log in to a portal.</li>
+  <li><b>An internal dashboard</b> showing intake, unbilled time and overdue invoices in one place for the managing partner.</li>
+  <li><b>Your own product.</b> If your firm has a process other firms would pay for, that can become software. We build MVPs too.</li>
+</ul>
+
+<h2><span class="n">05</span>The rules every build follows</h2>
+<div class="warn"><b>No system gives legal advice, quotes a fee, or assesses a case.</b> It collects facts, drafts, sorts and reminds. A person at the firm decides.</div>
+<ul>
+  <li><b>Client data stays in your systems</b> (your practice software and tools under a signed agreement), never pasted into a public chatbot.</li>
+  <li><b>Every draft has a named approver</b>, listed in the map above.</li>
+  <li><b>Lawyers stay responsible for AI-assisted work.</b> ABA Formal Opinion 512 (July 2024) covers competence, confidentiality, client communication and fees when firms use generative AI. Check your state bar's guidance too.</li>
+</ul>
+
+<h2><span class="n">06</span>5 questions to ask any agency before you buy</h2>
+<ol class="qs" style="margin-left:22px">
+  <li><b>Does it work inside my practice software, or beside it?</b><span>Ask them to show it writing into Clio or Lawmatics live, not a demo account.</span></li>
+  <li><b>Where does client data go?</b><span>Get a list of every service that touches it, and the agreement for each.</span></li>
+  <li><b>Who approves each step?</b><span>If the answer is "nobody, it's fully automatic", walk away.</span></li>
+  <li><b>Who fixes it when it breaks?</b><span>A name and a response time, in writing.</span></li>
+  <li><b>What's the smallest first build?</b><span>A good partner proves one piece before selling you the rest.</span></li>
+</ol>
+
+<div class="end">
+  <h3>Want this mapped to <i>your</i> firm?</h3>
+  <p>Orbiqon builds automation across your whole firm, custom tools where off-the-shelf falls short, and MVPs when you want your own product. We'll look at how your firm runs today and show you what we'd build first. 20 minutes, no pitch deck.</p>
+  <a href="https://orbiqon.com">Book a call at orbiqon.com</a>
+</div>
+<p class="fine">Examples are illustrations to adapt, not legal or ethics advice. Software names belong to their owners; Orbiqon is not affiliated with Clio, Lawmatics or Smokeball.</p>
+<a class="download" href="/files/law-firm-map.pdf">Download as PDF</a>
+</div></body></html>
