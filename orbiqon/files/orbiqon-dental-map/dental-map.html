@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The automation map for dental practices · Orbiqon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Manrope:wght@400..800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --bg:#F4F1EC; --card:#FFFFFF; --ink:#111111; --muted:#6B6B6B; --line:#E6E0D6;
+          --teal:#0097B2; --teal-tint:#DDF1F5; --red:#E5484D; --red-tint:#FDE8E9; --green:#1F9D55; }
+  body { background:var(--bg); color:var(--ink); font-family:'Manrope',sans-serif; font-size:17px; line-height:1.62;
+         background-image:linear-gradient(rgba(17,17,17,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(17,17,17,.04) 1px,transparent 1px);
+         background-size:32px 32px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page { max-width:760px; margin:0 auto; padding:56px 28px 80px; }
+  .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:36px; }
+  .brand { font-family:'Cal Sans',sans-serif; font-size:26px; letter-spacing:-0.01em; }
+  .brand i { color:var(--teal); font-style:normal; }
+  .chip { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:12px; letter-spacing:.1em;
+          border:2px solid var(--ink); border-radius:8px; padding:5px 10px; }
+  h1 { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:50px; line-height:1.04; letter-spacing:-0.015em; }
+  h1 em { font-family:'Instrument Serif',serif; font-style:italic; color:var(--teal); font-size:1.12em; }
+  .intro { margin:18px 0 0; color:#3D3D3D; font-size:18px; }
+  h2 { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:28px; line-height:1.15; margin:46px 0 14px;
+       display:flex; gap:14px; align-items:baseline; }
+  h2 .n { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px; color:var(--teal);
+          background:var(--teal-tint); border-radius:8px; padding:4px 9px; flex-shrink:0; transform:translateY(-4px); }
+  p { margin:10px 0; }
+  .card { background:var(--card); border-radius:18px; padding:20px 24px; margin:14px 0;
+          box-shadow:0 14px 34px rgba(30,40,50,.08),0 3px 8px rgba(30,40,50,.04); }
+  .stat { display:flex; gap:22px; align-items:center; }
+  .stat .big { font-family:'Cal Sans',sans-serif; font-size:64px; line-height:1; color:var(--red); flex-shrink:0; }
+  .src { font-size:13.5px; color:var(--muted); margin-top:8px; }
+  .sms { display:flex; flex-direction:column; gap:10px; }
+  .b { max-width:78%; padding:11px 16px; border-radius:18px; font-size:15.5px; line-height:1.4; }
+  .b.a { background:var(--teal); color:#fff; border-bottom-left-radius:6px; align-self:flex-start; }
+  .b.u { background:#EDE7DE; border-bottom-right-radius:6px; align-self:flex-end; font-weight:700; }
+  ul { margin:8px 0 8px 22px; } li { margin:6px 0; }
+  .warn { border-left:5px solid var(--red); background:var(--red-tint); border-radius:0 14px 14px 0; padding:14px 18px; margin:16px 0; font-size:16px; }
+  .ok { border-left:5px solid var(--green); background:#E6F4EC; border-radius:0 14px 14px 0; padding:14px 18px; margin:16px 0; font-size:16px; }
+  table { width:100%; border-collapse:collapse; font-size:15.5px; background:var(--card); border-radius:16px; overflow:hidden;
+          box-shadow:0 14px 34px rgba(30,40,50,.08); margin:14px 0; }
+  th { text-align:left; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+       color:var(--muted); padding:12px 16px; border-bottom:1.5px solid var(--line); }
+  td { padding:12px 16px; border-bottom:1px solid #EFEAE2; vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  .qs li { margin:12px 0; } .qs b { display:block; }
+  .qs span { color:var(--muted); font-size:15.5px; }
+  .end { margin-top:56px; background:var(--ink); color:#fff; border-radius:22px; padding:30px 30px; }
+  .end h3 { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:30px; line-height:1.1; }
+  .end h3 i { color:var(--teal); font-style:normal; }
+  .end p { color:#D6D6D6; }
+  .end a { display:inline-block; margin-top:14px; background:var(--teal); color:#fff; text-decoration:none; font-weight:800;
+           padding:12px 20px; border-radius:12px; }
+  .fine { margin-top:22px; font-size:12.5px; color:var(--muted); }
+  .dept td:first-child { font-family:"JetBrains Mono",monospace; font-weight:700; font-size:12.5px; letter-spacing:.08em; color:var(--teal); white-space:nowrap; }
+  .who { font-weight:800; }
+  @media print { body { background-image:none; } h2 { margin:32px 0 10px; } .end { margin-top:30px; } .fine { margin-top:12px; } .page { padding:28px 20px; } h2 { break-after:avoid; } .card, table, .end { break-inside:avoid; } }
+  .download { display:inline-block; margin-top:22px; padding:12px 22px; background:#0097B2; color:#fff; border-radius:999px; text-decoration:none; font-weight:700; font-size:15px; }
+</style></head><body><div class="page">
+
+<div class="top"><div class="brand">Orbiqon<i>.</i></div><div class="chip">THE MAP · #03</div></div>
+
+<h1>The automation map for <em>dental practices</em></h1>
+<p class="intro">Everything we'd automate in a US general or family practice, room by room: what each piece does, the software it lives in, and the person who approves it. Use it to plan your own setup, or to check what an agency is offering you.</p>
+
+<h2><span class="n">01</span>The two numbers</h2>
+<div class="card stat">
+  <div class="big">3 in 5</div>
+  <div>dentists say they are worried about recruiting and retaining staff, especially hygienists.
+  <div class="src">Source: ADA News, 9 Apr 2025, reporting ADA Health Policy Institute polling from the end of 2024.</div></div>
+</div>
+<div class="card stat">
+  <div class="big">47%</div>
+  <div>case completion across more than 15,000 practices, up from 42%. Fewer than half of the treatments dentists plan actually get done.
+  <div class="src">Source: Planet DDS 2026 Dental Industry Outlook, 11 Mar 2026, analysis of practices on Denticon. Planet DDS sells practice management software, so this is their own data.</div></div>
+</div>
+<p>So the front desk is stretched, and the biggest pot of revenue is treatment you have already diagnosed. Most practices don't need more new patients first. They need the work around each patient to stop falling through the cracks.</p>
+
+<h2><span class="n">02</span>The map</h2>
+<table class="dept">
+<tr><th>Room</th><th>What we'd automate</th><th>Who approves</th></tr>
+<tr><td>FRONT DESK</td><td>New patients book online straight into Dentrix, Eaglesoft or Open Dental, into a slot the right length for the procedure and only on days you are open. Forms and history arrive before the visit.</td><td class="who">Front desk confirms each booking</td></tr>
+<tr><td>INSURANCE</td><td>Two days before each visit, eligibility and remaining benefits are checked and summed up on the patient's chart. Frequency limits and odd answers are flagged.</td><td class="who">Treatment coordinator handles every flag</td></tr>
+<tr><td>CONSULT</td><td>After the exam, the patient gets their plan and costs in plain English, with financing options if you offer them.</td><td class="who">The dentist signs off the wording</td></tr>
+<tr><td>FOLLOW-UP</td><td>Every diagnosed treatment that never got booked lands on one weekly list, oldest first, with a message drafted for each patient.</td><td class="who">Front desk reviews and sends</td></tr>
+<tr><td>HYGIENE</td><td>Overdue recalls get a nudge with a booking link. Last-minute cancellations are offered to your ASAP list first, first yes fills the slot.</td><td class="who">Front desk sees every reply</td></tr>
+<tr><td>BILLING</td><td>Claims unpaid past 30 days are flagged with the denial reason and a draft appeal with the missing attachment listed.</td><td class="who">Billing team reviews and sends</td></tr>
+</table>
+<p>Also worth automating once the core is in: review requests after a good visit (replies that never confirm someone is a patient), and a Monday report for the owner with production, unscheduled treatment and open claims in one place.</p>
+
+<h2><span class="n">03</span>Where we'd start: follow-up</h2>
+<p>Unscheduled treatment is the first build we'd suggest for most practices, for three reasons:</p>
+<ul>
+  <li><b>It's revenue you already diagnosed.</b> The patient said yes to the exam. The plan is sitting in your software.</li>
+  <li><b>It doesn't touch your phones.</b> No AI answering anyone. Your front desk sends every message.</li>
+  <li><b>It's small.</b> It needs read access to treatment plans and appointments in your practice software, and your message templates.</li>
+</ul>
+<div class="ok">How the approval works: every Monday the front desk gets one list. Each patient has a drafted message. They edit, send or skip each one. Nothing goes to a patient until a person sends it.</div>
+
+<h2><span class="n">04</span>Where custom software beats off-the-shelf</h2>
+<p>Sometimes the gap isn't a missing automation, it's a missing tool. Common ones for practices:</p>
+<ul>
+  <li><b>A treatment plan page patients actually read</b>: the plan, the cost after insurance and the next step on one phone screen, instead of a printout.</li>
+  <li><b>A multi-location dashboard</b> showing unscheduled treatment, recall and claims across every office.</li>
+  <li><b>Your own product.</b> If your practice has a process other practices would pay for, that can become software. We build MVPs too.</li>
+</ul>
+
+<h2><span class="n">05</span>The rules every build follows</h2>
+<div class="warn"><b>No system diagnoses, gives clinical advice, or answers a patient's medical question.</b> Pain, swelling and bleeding go straight to a person. Systems draft, check, sort and remind. Your team decides.</div>
+<ul>
+  <li><b>Patient data stays in your systems</b> and in tools covered by a signed Business Associate Agreement under HIPAA, never pasted into a public chatbot.</li>
+  <li><b>Minimum necessary data.</b> Each automation only reads what it needs for its job.</li>
+  <li><b>Every patient-facing message has a named approver</b>, listed in the map above. The dentist approves the wording of anything clinical.</li>
+</ul>
+
+<h2><span class="n">06</span>5 questions to ask any agency before you buy</h2>
+<ol class="qs" style="margin-left:22px">
+  <li><b>Does it work inside my practice software, or beside it?</b><span>Ask them to show it reading your real schedule in Dentrix, Eaglesoft or Open Dental, not a demo account.</span></li>
+  <li><b>Will you sign a BAA?</b><span>And list every service that touches patient data.</span></li>
+  <li><b>Who approves each step?</b><span>If the answer is "nobody, it's fully automatic", walk away.</span></li>
+  <li><b>Who fixes it when it breaks?</b><span>A name and a response time, in writing.</span></li>
+  <li><b>What's the smallest first build?</b><span>A good partner proves one piece before selling you the rest.</span></li>
+</ol>
+
+<div class="end">
+  <h3>Want this mapped to <i>your</i> practice?</h3>
+  <p>Orbiqon builds automation across your whole practice, custom tools where off-the-shelf falls short, and MVPs when you want your own product. We'll look at how your practice runs today and show you what we'd build first. 20 minutes, no pitch deck.</p>
+  <a href="https://orbiqon.com">Book a call at orbiqon.com</a>
+</div>
+<p class="fine">Examples are illustrations to adapt, not clinical, legal or compliance advice. Software names belong to their owners; Orbiqon is not affiliated with Dentrix, Eaglesoft, Open Dental, Denticon or Planet DDS.</p>
+<a class="download" href="/files/dental-map.pdf">Download as PDF</a>
+</div></body></html>

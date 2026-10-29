@@ -1,0 +1,41 @@
+{
+  "name": "The Automation Map for Dental Practices",
+  "goal": "EP03 US dental map reel on @orbiqon: deliver the dental automation map",
+  "account": "@orbiqon (instagramAccountId cmvsfn741000004kzjqhli10t)",
+  "slug": "dental-map",
+  "files": {
+    "html": "/Users/apple/Orbiqon/Content/orbiqon-content/reels/ep03-us-dental-map/guide/guide.html",
+    "pdf": "/Users/apple/Orbiqon/Content/orbiqon-content/reels/ep03-us-dental-map/guide/guide.pdf"
+  },
+  "pageUrl": "https://reply.orbiqon.com/files/dental-map",
+  "pdfUrl": "https://reply.orbiqon.com/files/dental-map.pdf",
+  "target": {
+    "postId": "",
+    "postUrl": "",
+    "pendingNextReel": false,
+    "matchAnyPost": true
+  },
+  "targetNote": "matchAnyPost so it works the moment the reel posts (attach-next-reel cron only runs 06:00 UTC). Pin to the reel's postId after it goes live.",
+  "keywords": [
+    "dental",
+    "DENTAL",
+    "Dental"
+  ],
+  "dmTriggerEnabled": true,
+  "requireFollow": true,
+  "followPromptMessage": "Hey {username}! Follow @orbiqon first, then tap below and the map is yours 👇",
+  "followPromptButtonLabel": "I followed",
+  "dmMessage": "Here you go {username}: the automation map for dental practices. Every room, what we would automate in each, who approves it, and where to start. Tap below to open it 👇",
+  "linkButtonLabel": "Get the map",
+  "publicReplyEnabled": true,
+  "publicReplyMessages": [
+    "Sent you a DM 📩",
+    "Check your DMs 👀",
+    "Just sent it over 👇"
+  ],
+  "followUpEnabled": false,
+  "isActive": true,
+  "campaignId": "cmvtrd8q0000008juk4ahp6wo",
+  "trackedLink": "https://reply.orbiqon.com/r/CJ1t9lQOvQ",
+  "created": "2026-10-29"
+}
